@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Calendar, Clock, ArrowRight, TrendingUp, Code, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader } from './ui/card';
 import { Button } from './ui/button';
@@ -6,6 +7,7 @@ import { CircuitBackground } from './CircuitBackground';
 import { LogoDecorative } from './Logo';
 
 export function BlogPage() {
+  const [selectedCategory, setSelectedCategory] = useState('All Posts');
   const featuredPost = {
     title: 'The Future of Marketing Automation: AI-Powered Optimization in 2025',
     excerpt: 'How machine learning is revolutionizing marketing workflows and delivering unprecedented ROI at scale.',
@@ -137,9 +139,10 @@ export function BlogPage() {
             {categories.map((category, index) => (
               <Button
                 key={index}
-                variant={index === 0 ? 'default' : 'outline'}
+                variant={selectedCategory === category ? 'default' : 'outline'}
                 size="sm"
-                className={index === 0 
+                onClick={() => setSelectedCategory(category)}
+                className={selectedCategory === category
                   ? 'bg-[#00D0FF] text-[#14141A] hover:bg-[#00D0FF]/90' 
                   : 'border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10'
                 }
@@ -156,7 +159,9 @@ export function BlogPage() {
         <LogoDecorative position="top-right" className="w-44 h-44" />
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {blogPosts
+              .filter(post => selectedCategory === 'All Posts' || post.category === selectedCategory)
+              .map((post, index) => (
               <Card 
                 key={index} 
                 className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all overflow-hidden group"
