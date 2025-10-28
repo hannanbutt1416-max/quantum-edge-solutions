@@ -35,7 +35,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               <span className="text-white font-bold text-lg tracking-tight">
                 QUANTOM
               </span>
-              <span className="text-[#75FF00] font-semibold text-lg tracking-tight">
+              <span className="text-[#00D0FF] font-semibold text-lg tracking-tight">
                 EDGE
               </span>
             </div>
@@ -50,8 +50,8 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200
                     ${
                       currentPage === item.path
-                        ? 'text-[#75FF00] bg-[#75FF00]/10'
-                        : 'text-[#C2C2CC] hover:text-[#75FF00] hover:bg-[#1F1F24]'
+                        ? 'text-[#00D0FF] bg-[#00D0FF]/10 '
+                        : 'text-[#C2C2CC] hover:text-[#00D0FF] hover:bg-[#1F1F24]'
                     }`}
                 >
                   {item.name}
@@ -64,7 +64,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <div className="hidden lg:block">
             <Button
               onClick={() => onNavigate('contact')}
-              className="bg-[#75FF00] text-[#14141A] hover:bg-[#64E600] font-semibold px-6 py-2 rounded-md transition-colors"
+              className="bg-[#75FF00] text-[#14141A] hover:bg-[#00B8E0] font-semibold px-6 py-2 rounded-md transition-colors"
             >
               Start Project
             </Button>
@@ -72,7 +72,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
 
           {/* Mobile Menu Icon */}
           <button
-            className="lg:hidden text-[#75FF00]"
+            className="lg:hidden text-[#00D0FF]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -92,15 +92,15 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 className={`block w-full text-left py-3 px-4 rounded-md text-sm font-medium transition-all
                   ${
                     currentPage === item.path
-                      ? 'text-[#75FF00] bg-[#1F1F24]'
-                      : 'text-[#C2C2CC] hover:text-[#75FF00] hover:bg-[#1A1A1F]'
+                      ? 'text-[#00D0FF] bg-[#1F1F24] border-l-2 border-[#00D0FF]'
+                      : 'text-[#C2C2CC] hover:text-[#00D0FF] hover:bg-[#1A1A1F]'
                   }`}
               >
                 {item.name}
               </button>
             ))}
             <Button
-              className="w-full bg-[#75FF00] text-[#14141A] hover:bg-[#64E600] mt-4 font-semibold rounded-md"
+              className="w-full bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00] mt-4 font-semibold rounded-md"
               onClick={() => {
                 onNavigate('contact');
                 setMobileMenuOpen(false);
