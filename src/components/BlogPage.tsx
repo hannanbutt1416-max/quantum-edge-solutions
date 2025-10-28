@@ -8,6 +8,7 @@ import { LogoDecorative } from './Logo';
 
 export function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All Posts');
+
   const featuredPost = {
     title: 'The Future of Marketing Automation: AI-Powered Optimization in 2025',
     excerpt: 'How machine learning is revolutionizing marketing workflows and delivering unprecedented ROI at scale.',
@@ -15,6 +16,7 @@ export function BlogPage() {
     date: 'October 25, 2025',
     readTime: '8 min read',
     category: 'AI & Automation',
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   };
 
   const blogPosts = [
@@ -26,6 +28,7 @@ export function BlogPage() {
       readTime: '12 min read',
       category: 'Engineering',
       icon: <Code className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       title: 'Real-Time Data Processing at Scale: Kafka to ClickHouse Pipeline',
@@ -35,6 +38,7 @@ export function BlogPage() {
       readTime: '15 min read',
       category: 'Data Engineering',
       icon: <TrendingUp className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       title: 'Predictive Lead Scoring with Machine Learning',
@@ -44,6 +48,7 @@ export function BlogPage() {
       readTime: '10 min read',
       category: 'Machine Learning',
       icon: <Zap className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/5473958/pexels-photo-5473958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       title: 'Container Orchestration: Kubernetes in Production',
@@ -53,6 +58,7 @@ export function BlogPage() {
       readTime: '11 min read',
       category: 'DevOps',
       icon: <Code className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       title: 'Multi-Channel Attribution: Beyond Last-Click',
@@ -62,6 +68,7 @@ export function BlogPage() {
       readTime: '9 min read',
       category: 'Analytics',
       icon: <TrendingUp className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       title: 'GraphQL Performance Optimization Techniques',
@@ -71,6 +78,7 @@ export function BlogPage() {
       readTime: '13 min read',
       category: 'Engineering',
       icon: <Code className="w-16 h-16" />,
+      image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
   ];
 
@@ -104,16 +112,21 @@ export function BlogPage() {
       <section className="py-12 bg-[#14141A]">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <Card className="bg-[#1A1A22] border-[#00D0FF]/30 overflow-hidden glow-cyan">
+            <Card className="bg-[#1A1A22] border-[#00D0FF]/30 overflow-hidden glow-cyan shadow-2xl">
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative bg-gradient-to-br from-[#00D0FF]/20 to-[#75FF00]/20 flex items-center justify-center p-12">
-                  <TrendingUp className="w-32 h-32 text-[#00D0FF] opacity-40" />
+                <div className="relative overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#14141A] via-transparent to-transparent" />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <Badge className="w-fit mb-4 bg-[#75FF00] text-[#14141A]">
                     FEATURED
                   </Badge>
-                  <h2 className="text-white mb-4">{featuredPost.title}</h2>
+                  <h2 className="text-white mb-4 text-2xl font-bold">{featuredPost.title}</h2>
                   <p className="text-[#C2C2CC] mb-6">{featuredPost.excerpt}</p>
                   <div className="flex items-center text-sm text-[#C2C2CC] mb-6 font-mono">
                     <Calendar size={14} className="mr-2 text-[#00D0FF]" />
@@ -121,7 +134,7 @@ export function BlogPage() {
                     <Clock size={14} className="mr-2 text-[#00D0FF]" />
                     <span>{featuredPost.readTime}</span>
                   </div>
-                  <Button className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90">
+                  <Button className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 w-fit">
                     Read Article
                     <ArrowRight className="ml-2" size={16} />
                   </Button>
@@ -142,9 +155,10 @@ export function BlogPage() {
                 variant={selectedCategory === category ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category
-                  ? 'bg-[#00D0FF] text-[#14141A] hover:bg-[#00D0FF]/90' 
-                  : 'border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10'
+                className={
+                  selectedCategory === category
+                    ? 'bg-[#00D0FF] text-[#14141A] hover:bg-[#00D0FF]/90'
+                    : 'border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10'
                 }
               >
                 {category}
@@ -156,56 +170,64 @@ export function BlogPage() {
 
       {/* Blog Posts Grid */}
       <section className="py-20 bg-[#14141A] hex-pattern relative">
-        <LogoDecorative position="top-right" className="w-44 h-44" />
+        <LogoDecorative position="top-right" className="w-44 h-44 opacity-20" />
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts
               .filter(post => selectedCategory === 'All Posts' || post.category === selectedCategory)
               .map((post, index) => (
-              <Card 
-                key={index} 
-                className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all overflow-hidden group"
-              >
-                <div className="relative h-48 bg-gradient-to-br from-[#00D0FF]/10 to-[#75FF00]/10 flex items-center justify-center">
-                  <div className="text-[#00D0FF] opacity-30 group-hover:opacity-50 transition-opacity">
-                    {post.icon}
+                <Card
+                  key={index}
+                  className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all overflow-hidden group shadow-lg hover:shadow-2xl hover:glow-cyan"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A22] via-transparent to-transparent opacity-70" />
+                    <div className="absolute bottom-3 left-3 opacity-80 group-hover:opacity-100 transition-opacity">
+                      {post.icon}
+                    </div>
                   </div>
-                </div>
-                <CardHeader>
-                  <Badge className="w-fit mb-2 bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30">
-                    {post.category}
-                  </Badge>
-                  <h3 className="text-white mb-2 leading-tight">{post.title}</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-[#C2C2CC] mb-4 text-sm">{post.excerpt}</p>
-                  <div className="flex items-center text-xs text-[#C2C2CC] mb-4 font-mono">
-                    <Calendar size={12} className="mr-2 text-[#00D0FF]" />
-                    <span className="mr-4">{post.date}</span>
-                    <Clock size={12} className="mr-2 text-[#00D0FF]" />
-                    <span>{post.readTime}</span>
-                  </div>
-                  <div className="border-t border-[#00D0FF]/10 pt-4 mb-4">
-                    <p className="text-[#C2C2CC] text-xs">BY {post.author.toUpperCase()}</p>
-                  </div>
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10"
-                  >
-                    Read More
-                    <ArrowRight className="ml-2" size={16} />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardHeader className="pt-4">
+                    <Badge className="w-fit mb-2 bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30 text-xs">
+                      {post.category}
+                    </Badge>
+                    <h3 className="text-white mb-2 leading-tight text-lg font-semibold group-hover:text-[#00D0FF] transition-colors">
+                      {post.title}
+                    </h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-[#C2C2CC] mb-4 text-sm line-clamp-2">{post.excerpt}</p>
+                    <div className="flex items-center text-xs text-[#C2C2CC] mb-4 font-mono">
+                      <Calendar size={12} className="mr-2 text-[#00D0FF]" />
+                      <span className="mr-4">{post.date}</span>
+                      <Clock size={12} className="mr-2 text-[#00D0FF]" />
+                      <span>{post.readTime}</span>
+                    </div>
+                    <div className="border-t border-[#00D0FF]/10 pt-3 mb-4">
+                      <p className="text-[#C2C2CC] text-xs font-mono">BY {post.author.toUpperCase()}</p>
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10 hover:text-white transition-all"
+                    >
+                      Read More
+                      <ArrowRight className="ml-2" size={16} />
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
           </div>
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              className="border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10"
+              className="border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10 px-8"
             >
               Load More Articles
             </Button>
@@ -219,17 +241,17 @@ export function BlogPage() {
           <Card className="max-w-2xl mx-auto bg-gradient-to-br from-[#00D0FF]/10 to-[#75FF00]/10 border-[#00D0FF]/30 glow-cyan">
             <CardContent className="pt-8 text-center">
               <Code className="w-12 h-12 mx-auto mb-4 text-[#00D0FF]" />
-              <h2 className="text-white mb-4">Technical Newsletter</h2>
-              <p className="text-[#C2C2CC] mb-6">
+              <h2 className="text-white mb-4 text-2xl font-bold">Technical Newsletter</h2>
+              <p className="text-[#C2C2CC] mb-6 max-w-md mx-auto">
                 Get weekly insights on engineering, data science, and digital marketing delivered to your inbox
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-grow px-4 py-3 rounded-md bg-[#14141A] border border-[#00D0FF]/30 text-white placeholder-[#C2C2CC]/50 focus:outline-none focus:border-[#00D0FF]"
+                  className="flex-grow px-4 py-3 rounded-md bg-[#14141A] border border-[#00D0FF]/30 text-white placeholder-[#C2C2CC]/50 focus:outline-none focus:border-[#00D0FF] transition-colors"
                 />
-                <Button className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 px-8">
+                <Button className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 px-8 font-medium">
                   Subscribe
                 </Button>
               </div>
@@ -247,7 +269,7 @@ export function BlogPage() {
           <div className="inline-block mb-8 px-4 py-1 bg-[#00D0FF]/10 border border-[#00D0FF]/30 rounded-md mx-auto block w-fit">
             <span className="text-[#00D0FF] text-sm font-mono">TOPICS</span>
           </div>
-          <h2 className="text-white mb-12 text-center text-4xl">Popular Topics</h2>
+          <h2 className="text-white mb-12 text-center text-4xl font-bold">Popular Topics</h2>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
               'Machine Learning',
@@ -265,7 +287,7 @@ export function BlogPage() {
             ].map((topic, index) => (
               <div
                 key={index}
-                className="px-4 py-2 bg-[#1A1A22] border border-[#00D0FF]/30 rounded-md hover:border-[#00D0FF] hover:glow-cyan transition-all cursor-pointer"
+                className="px-4 py-2 bg-[#1A1A22] border border-[#00D0FF]/30 rounded-md hover:border-[#00D0FF] hover:bg-[#00D0FF]/5 hover:glow-cyan transition-all cursor-pointer"
               >
                 <span className="text-[#C2C2CC] font-mono text-sm">{topic}</span>
               </div>

@@ -28,7 +28,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'Deploy Time', value: '10x Faster', icon: <Clock size={16} /> },
       ],
       technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 2,
@@ -44,7 +44,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'Lead Quality', value: '+89%', icon: <Users size={16} /> },
       ],
       technologies: ['Python', 'TensorFlow', 'Redis', 'GraphQL', 'Kafka'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/5473958/pexels-photo-5473958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 3,
@@ -60,7 +60,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'Revenue Growth', value: '+$2.4M', icon: <DollarSign size={16} /> },
       ],
       technologies: ['Python', 'BigQuery', 'React', 'D3.js', 'FastAPI'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'User Adoption', value: '+215%', icon: <Users size={16} /> },
       ],
       technologies: ['Apache Kafka', 'ClickHouse', 'WebSocket', 'React', 'Grafana'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 5,
@@ -92,7 +92,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'Deliverability', value: '99.4%', icon: <TrendingUp size={16} /> },
       ],
       technologies: ['SendGrid API', 'Redis', 'PostgreSQL', 'Python', 'Celery'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 6,
@@ -108,7 +108,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
         { metric: 'Sales Cycle', value: '-40%', icon: <Clock size={16} /> },
       ],
       technologies: ['Python', 'scikit-learn', 'XGBoost', 'PostgreSQL', 'FastAPI'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800',
+      image: 'https://images.pexels.com/photos/3184613/pexels-photo-3184613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
   ];
 
@@ -132,7 +132,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
           <div className="inline-block mb-6 px-4 py-2 bg-[#00D0FF]/10 border border-[#00D0FF]/30 rounded-md">
             <span className="text-[#00D0FF] text-sm font-mono">CASE STUDIES</span>
           </div>
-          <h1 className="text-white mb-6 text-5xl">Proven Results</h1>
+          <h1 className="text-white mb-6 text-5xl font-bold">Proven Results</h1>
           <p className="text-[#C2C2CC] text-xl max-w-3xl mx-auto">
             Real enterprise solutions delivering measurable impact across industries
           </p>
@@ -165,8 +165,8 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
 
       {/* Filter & Case Studies */}
       <section className="py-20 bg-[#14141A] relative">
-        <LogoDecorative position="top-left" className="w-48 h-48" />
-        <LogoDecorative position="bottom-right" className="w-56 h-56" />
+        <LogoDecorative position="top-left" className="w-48 h-48 opacity-20" />
+        <LogoDecorative position="bottom-right" className="w-56 h-56 opacity-20" />
         <div className="container mx-auto px-4">
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -175,9 +175,10 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
                 key={category.id}
                 variant={selectedCategory === category.id ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(category.id)}
-                className={selectedCategory === category.id 
-                  ? 'bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90' 
-                  : 'border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10'
+                className={
+                  selectedCategory === category.id 
+                    ? 'bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 font-medium' 
+                    : 'border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10'
                 }
               >
                 {category.label}
@@ -190,30 +191,35 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
             {filteredCases.map((study) => (
               <Card 
                 key={study.id} 
-                className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all overflow-hidden group"
+                className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all overflow-hidden group shadow-lg hover:shadow-2xl hover:glow-cyan"
               >
-                <div className="relative h-48 overflow-hidden bg-[#14141A]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00D0FF]/20 to-[#75FF00]/20"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-[#00D0FF] opacity-20 group-hover:opacity-40 transition-opacity">
-                      <TrendingUp size={80} />
-                    </div>
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={study.image}
+                    alt={study.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A22] via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-4 left-4 text-[#00D0FF] opacity-30 group-hover:opacity-60 transition-opacity">
+                    <TrendingUp size={48} />
                   </div>
                 </div>
                 <CardContent className="pt-6">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    <Badge className="bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30">
+                    <Badge className="bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30 text-xs">
                       {study.industry}
                     </Badge>
                   </div>
-                  <h3 className="text-white mb-2">{study.title}</h3>
+                  <h3 className="text-white mb-2 text-lg font-semibold group-hover:text-[#00D0FF] transition-colors">
+                    {study.title}
+                  </h3>
                   <p className="text-[#C2C2CC] text-sm mb-1 font-mono">{study.client}</p>
                   
                   <div className="my-4 pt-4 border-t border-[#00D0FF]/10">
-                    <p className="text-[#C2C2CC] text-xs mb-2">CHALLENGE</p>
-                    <p className="text-[#C2C2CC] text-sm mb-4">{study.challenge}</p>
-                    <p className="text-[#C2C2CC] text-xs mb-2">SOLUTION</p>
-                    <p className="text-[#C2C2CC] text-sm">{study.solution}</p>
+                    <p className="text-[#C2C2CC] text-xs mb-2 font-semibold">CHALLENGE</p>
+                    <p className="text-[#C2C2CC] text-sm mb-4 line-clamp-2">{study.challenge}</p>
+                    <p className="text-[#C2C2CC] text-xs mb-2 font-semibold">SOLUTION</p>
+                    <p className="text-[#C2C2CC] text-sm line-clamp-2">{study.solution}</p>
                   </div>
                   
                   <div className="space-y-3 mb-6 pt-4 border-t border-[#00D0FF]/10">
@@ -223,14 +229,17 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
                           <div className="text-[#00D0FF]">{result.icon}</div>
                           <span className="text-[#C2C2CC] text-xs">{result.metric}</span>
                         </div>
-                        <span className="text-[#75FF00] font-mono text-sm">{result.value}</span>
+                        <span className="text-[#75FF00] font-mono text-sm font-bold">{result.value}</span>
                       </div>
                     ))}
                   </div>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {study.technologies.slice(0, 3).map((tech, idx) => (
-                      <span key={idx} className="text-[#00D0FF] text-xs font-mono bg-[#00D0FF]/5 px-2 py-1 rounded border border-[#00D0FF]/20">
+                      <span 
+                        key={idx} 
+                        className="text-[#00D0FF] text-xs font-mono bg-[#00D0FF]/5 px-2 py-1 rounded border border-[#00D0FF]/20"
+                      >
                         {tech}
                       </span>
                     ))}
@@ -238,7 +247,7 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
                   
                   <Button 
                     variant="outline" 
-                    className="w-full border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10"
+                    className="w-full border-[#00D0FF]/30 text-[#00D0FF] hover:bg-[#00D0FF]/10 hover:text-white transition-all"
                   >
                     View Full Case Study
                     <ArrowRight className="ml-2" size={16} />
@@ -253,13 +262,13 @@ export function PortfolioPage({ onNavigate }: PortfolioPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#00D0FF]/10 to-[#75FF00]/10 border-y border-[#00D0FF]/20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-white mb-4 text-4xl">Ready to Scale Your Operations?</h2>
+          <h2 className="text-white mb-4 text-4xl font-bold">Ready to Scale Your Operations?</h2>
           <p className="text-[#C2C2CC] text-xl mb-8 max-w-2xl mx-auto">
             Let's discuss how we can deliver similar results for your organization
           </p>
           <Button 
             size="lg" 
-            className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 glow-lime font-semibold"
+            className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 glow-lime font-semibold px-8"
             onClick={() => onNavigate('contact')}
           >
             Start Your Project

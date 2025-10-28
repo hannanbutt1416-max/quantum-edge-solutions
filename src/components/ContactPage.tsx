@@ -1,3 +1,6 @@
+// components/ContactPage.tsx
+"use client";
+
 import { useState } from 'react';
 import {
   Mail,
@@ -23,55 +26,13 @@ import {
 import { Label } from './ui/label';
 import { CircuitBackground } from './CircuitBackground';
 
-// Collapsible FAQ Item Component
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="bg-[#14141A] border border-[#00D0FF]/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#00D0FF]/60">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-5 flex items-center justify-between text-left group focus:outline-none"
-        aria-expanded={isOpen}
-      >
-        <h4 className="text-white font-medium pr-4 group-hover:text-[#00D0FF] transition-colors">
-          {question}
-        </h4>
-        <div
-          className={`w-6 h-6 flex items-center justify-center rounded-full border transition-all duration-300 ${
-            isOpen
-              ? 'bg-[#00D0FF] border-[#00D0FF] rotate-180'
-              : 'border-[#00D0FF]/40 group-hover:border-[#00D0FF]'
-          }`}
-        >
-          <svg
-            className="w-3 h-3 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-96' : 'max-h-0'
-        }`}
-      >
-        <div className="px-6 pb-5">
-          <p className="text-[#C2C2CC] text-sm leading-relaxed">{answer}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+// Import Radix Accordion
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './ui/accordion';
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -129,6 +90,29 @@ export function ContactPage() {
     },
   ];
 
+  const faqs = [
+    {
+      q: 'What is your typical project timeline?',
+      a: 'Timelines vary by complexity. Simple automation projects: 4-6 weeks. Custom SaaS platforms: 3-6 months. We provide detailed timelines during initial consultation.',
+    },
+    {
+      q: 'Do you offer ongoing support and maintenance?',
+      a: 'Yes. All enterprise clients receive 24/7 support, regular updates, and proactive monitoring. Support SLAs are customized based on your requirements.',
+    },
+    {
+      q: 'What industries do you specialize in?',
+      a: 'We work with B2B enterprises across technology, finance, healthcare, and professional services. Our solutions are industry-agnostic and highly customizable.',
+    },
+    {
+      q: 'How do you ensure data security and compliance?',
+      a: 'We are SOC 2 Type II and ISO 27001 certified. All solutions include enterprise-grade encryption, access controls, and compliance frameworks (GDPR, HIPAA, etc.).',
+    },
+    {
+      q: 'What is the minimum engagement size?',
+      a: 'We typically work with projects starting at $10,000. For enterprise contracts, we offer customized pricing and long-term partnership models.',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#14141A]">
       {/* Hero Section */}
@@ -145,7 +129,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form & Info Section */}
+      {/* Contact Form & Info */}
       <section className="py-20 bg-[#0F0F14] relative">
         <div className="container mx-auto px-4 grid lg:grid-cols-3 gap-10">
           {/* Form */}
@@ -179,8 +163,9 @@ export function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-7">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="mb-3">
+                    {/* Form Fields */}
+                    <div className="grid md:grid-cols-2 gap-6 mb-3">
+                      <div>
                         <Label htmlFor="name" className="text-[#C2C2CC] mb-2 block">
                           Full Name <span className="text-[#75FF00]">*</span>
                         </Label>
@@ -194,7 +179,7 @@ export function ContactPage() {
                           required
                         />
                       </div>
-                      <div className="mb-3">
+                      <div>
                         <Label htmlFor="email" className="text-[#C2C2CC] mb-2 block">
                           Email Address <span className="text-[#75FF00]">*</span>
                         </Label>
@@ -210,8 +195,8 @@ export function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="mb-3">
+                    <div className="grid md:grid-cols-2 gap-6 mb-3">
+                      <div>
                         <Label htmlFor="phone" className="text-[#C2C2CC] mb-2 block">
                           Phone Number
                         </Label>
@@ -224,7 +209,7 @@ export function ContactPage() {
                           className="bg-[#0A0A0D] border border-[#00D0FF]/30 text-white h-12 rounded-xl focus:border-[#00D0FF] focus:ring-[#00D0FF]/30"
                         />
                       </div>
-                      <div className="mb-3">
+                      <div>
                         <Label htmlFor="company" className="text-[#C2C2CC] mb-2 block">
                           Company <span className="text-[#75FF00]">*</span>
                         </Label>
@@ -240,8 +225,8 @@ export function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="mb-3">
+                    <div className="grid md:grid-cols-2 gap-6 mb-3">
+                      <div>
                         <Label htmlFor="service" className="text-[#C2C2CC] mb-2 block">
                           Service Interest <span className="text-[#75FF00]">*</span>
                         </Label>
@@ -271,7 +256,7 @@ export function ContactPage() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <div className="mb-3">
+                      <div>
                         <Label htmlFor="budget" className="text-[#C2C2CC] mb-2 block">
                           Budget Range
                         </Label>
@@ -299,7 +284,7 @@ export function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="mb-3">
+                    <div>
                       <Label htmlFor="message" className="text-[#C2C2CC] mb-2 block">
                         Project Details <span className="text-[#75FF00]">*</span>
                       </Label>
@@ -383,7 +368,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section - Now Collapsible */}
+      {/* FAQ Section – Using Radix UI Accordion */}
       <section className="py-20 bg-[#1A1A22]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -396,36 +381,29 @@ export function ContactPage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-4">
-            {[
-              {
-                q: 'What is your typical project timeline?',
-                a: 'Timelines vary by complexity. Simple automation projects: 4-6 weeks. Custom SaaS platforms: 3-6 months. We provide detailed timelines during initial consultation.',
-              },
-              {
-                q: 'Do you offer ongoing support and maintenance?',
-                a: 'Yes. All enterprise clients receive 24/7 support, regular updates, and proactive monitoring. Support SLAs are customized based on your requirements.',
-              },
-              {
-                q: 'What industries do you specialize in?',
-                a: 'We work with B2B enterprises across technology, finance, healthcare, and professional services. Our solutions are industry-agnostic and highly customizable.',
-              },
-              {
-                q: 'How do you ensure data security and compliance?',
-                a: 'We are SOC 2 Type II and ISO 27001 certified. All solutions include enterprise-grade encryption, access controls, and compliance frameworks (GDPR, HIPAA, etc.).',
-              },
-              {
-                q: 'What is the minimum engagement size?',
-                a: 'We typically work with projects starting at $10,000. For enterprise contracts, we offer customized pricing and long-term partnership models.',
-              },
-            ].map((faq, index) => (
-              <FAQItem key={index} question={faq.q} answer={faq.a} />
-            ))}
+          <div className="max-w-5xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+<AccordionItem
+  key={index}
+  value={`item-${index}`}
+  className="bg-[#14141A] border border-[#00D0FF]/20 rounded-md overflow-hidden transition-all hover:border-[#00D0FF]/60"
+>
+  <AccordionTrigger className="px-8 py-6 text-left text-white font-medium hover:text-[#00D0FF] transition-colors [&[data-state=open]>svg]:rotate-180 focus-visible:ring-0">
+    {faq.q}
+  </AccordionTrigger>
+  <AccordionContent className="px-6 pb-5 pt-2">
+    <p className="text-[#C2C2CC] text-sm leading-relaxed">{faq.a}</p>
+  </AccordionContent>
+</AccordionItem>
+
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
 
-      {/* Location Map Placeholder */}
+      {/* Map Placeholder */}
       <section className="h-96 bg-gradient-to-br from-[#00D0FF]/5 to-[#75FF00]/5 relative overflow-hidden border-y border-[#00D0FF]/20">
         <div className="absolute inset-0 hex-pattern opacity-30"></div>
         <div className="absolute inset-0 flex items-center justify-center">
