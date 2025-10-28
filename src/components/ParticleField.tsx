@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 interface Particle {
   id: number;
@@ -54,7 +54,7 @@ export function ParticleField() {
             viewBox="0 0 100 100"
             className="w-full h-full"
             style={{
-              filter: 'drop-shadow(0 0 10px rgba(0, 208, 255, 0.5))',
+              filter: "drop-shadow(0 0 10px rgba(0, 208, 255, 0.5))",
             }}
           >
             <polygon

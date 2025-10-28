@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Linkedin, Twitter, Github, Mail, Phone, MapPin } from "lucide-react";
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -16,21 +16,35 @@ export function Footer({ onNavigate }: FooterProps) {
                 <span className="text-[#14141A] font-bold text-xl">QE</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-bold leading-tight">QUANTOM</span>
-                <span className="text-[#75FF00] font-bold leading-tight">EDGE</span>
+                <span className="text-white font-bold leading-tight">
+                  QUANTOM
+                </span>
+                <span className="text-[#75FF00] font-bold leading-tight">
+                  EDGE
+                </span>
               </div>
             </div>
             <p className="text-[#C2C2CC]/80 mb-4 text-sm">
-              Full-stack digital marketing, automation, and SaaS solutions for B2B enterprises.
+              Full-stack digital marketing, automation, and SaaS solutions for
+              B2B enterprises.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors">
+              <a
+                href="#"
+                className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors">
+              <a
+                href="#"
+                className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
+              >
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors">
+              <a
+                href="#"
+                className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
+              >
                 <Github size={20} />
               </a>
             </div>
@@ -41,40 +55,40 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="text-white mb-4 font-semibold">Navigation</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button 
-                  onClick={() => onNavigate('home')} 
+                <button
+                  onClick={() => onNavigate("home")}
                   className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
                 >
                   Home
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('services')} 
+                <button
+                  onClick={() => onNavigate("services")}
                   className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
                 >
                   Services
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('about')} 
+                <button
+                  onClick={() => onNavigate("about")}
                   className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
                 >
                   Solutions
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('portfolio')} 
+                <button
+                  onClick={() => onNavigate("portfolio")}
                   className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
                 >
                   Case Studies
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => onNavigate('blog')} 
+                <button
+                  onClick={() => onNavigate("blog")}
                   className="text-[#C2C2CC] hover:text-[#00D0FF] transition-colors"
                 >
                   Insights
@@ -101,21 +115,31 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="text-white mb-4 font-semibold">Contact</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
-                <MapPin size={16} className="flex-shrink-0 mt-1 text-[#00D0FF]" />
+                <MapPin
+                  size={16}
+                  className="flex-shrink-0 mt-1 text-[#00D0FF]"
+                />
                 <span className="text-[#C2C2CC]/80">
-                  7838 Malton Ln<br />
+                  7838 Malton Ln
+                  <br />
                   Worthington, OH 43085, USA
                 </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} className="flex-shrink-0 text-[#00D0FF]" />
-                <a href="tel:+16144055814" className="text-[#C2C2CC]/80 hover:text-[#00D0FF] transition-colors">
+                <a
+                  href="tel:+16144055814"
+                  className="text-[#C2C2CC]/80 hover:text-[#00D0FF] transition-colors"
+                >
                   +1 (614) 405-5814
                 </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail size={16} className="flex-shrink-0 text-[#00D0FF]" />
-                <a href="mailto:contact@quantomedge.io" className="text-[#C2C2CC]/80 hover:text-[#00D0FF] transition-colors">
+                <a
+                  href="mailto:contact@quantomedge.io"
+                  className="text-[#C2C2CC]/80 hover:text-[#00D0FF] transition-colors"
+                >
                   contact@quantomedge.io
                 </a>
               </li>
@@ -129,9 +153,15 @@ export function Footer({ onNavigate }: FooterProps) {
             &copy; 2025 Quantom Edge Solutions. All rights reserved.
           </p>
           <div className="flex space-x-6 text-[#C2C2CC]/60">
-            <button className="hover:text-[#00D0FF] transition-colors">Privacy Policy</button>
-            <button className="hover:text-[#00D0FF] transition-colors">Terms of Service</button>
-            <button className="hover:text-[#00D0FF] transition-colors">Security</button>
+            <button className="hover:text-[#00D0FF] transition-colors">
+              Privacy Policy
+            </button>
+            <button className="hover:text-[#00D0FF] transition-colors">
+              Terms of Service
+            </button>
+            <button className="hover:text-[#00D0FF] transition-colors">
+              Security
+            </button>
           </div>
         </div>
       </div>
