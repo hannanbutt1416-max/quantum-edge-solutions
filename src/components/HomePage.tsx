@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingUp, Code, Zap, BarChart, Server, Database, Cpu, Network, Search, MapPin, Users, Globe, FileText, Smartphone } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, BarChart, Server, Database, Cpu, Network, Search, MapPin, Users, Globe, FileText, Smartphone } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
@@ -17,18 +17,12 @@ import { GlitchText } from './GlitchText';
 import { AnimatedGrid } from './AnimatedGrid';
 import { MouseFollowParallax } from './MouseFollowParallax';
 import { ScanlineEffect } from './ScanlineEffect';
-import { BinaryRain } from './BinaryRain';
 import { RevealText } from './RevealText';
 import { MagneticButton } from './MagneticButton';
 import { HolographicPanel } from './HolographicPanel';
-import { MorphingBlob } from './MorphingBlob';
-import { CodeFlowAnimation } from './CodeFlowAnimation';
-import { LiquidDistortion } from './LiquidDistortion';
 import { FloatingCard3D } from './FloatingCard3D';
 import { CursorTrail } from './CursorTrail';
-import { RippleEffect } from './RippleEffect';
 import { Holographic3DText } from './Holographic3DText';
-import { DataVisualizationOrbs } from './DataVisualizationOrbs';
 import { ExplosiveEntrance } from './ExplosiveEntrance';
 import { MobileOptimizedWrapper } from './MobileOptimizedWrapper';
 import { SimplifiedBackground } from './SimplifiedBackground';
@@ -108,45 +102,53 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <CursorTrail />
       </MobileOptimizedWrapper>
       
-      {/* Hero Section - The Intelligence Layer */}
-      <section className="relative py-16 md:py-32 overflow-hidden hex-pattern">
-        {/* Desktop: Multi-Layered Background Effects, Mobile: Simplified */}
+      {/* HERO SECTION - Clean, Smooth & Stunning */}
+      <section className="relative py-16 md:py-32 overflow-hidden">
+        {/* Clean Background Stack */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#14141A] via-[#1A1A22] to-[#14141A] opacity-90" />
+        
+        {/* Subtle Noise Texture */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+
+        {/* Lightweight Effects Only */}
         <MobileOptimizedWrapper fallback={<SimplifiedBackground />}>
           <>
-            <MorphingBlob />
-            <LiquidDistortion />
-            <CodeFlowAnimation />
-            <DataVisualizationOrbs />
-            <RippleEffect />
+            <CircuitBackground />
+            <AnimatedGrid />
+            <ParticleField />
           </>
         </MobileOptimizedWrapper>
-        
-        {/* Always show these lighter effects */}
-        <CircuitBackground />
-        <AnimatedGrid />
-        <ScanlineEffect />
-        <MobileOptimizedWrapper>
-          <ParticleField />
-          <BinaryRain />
-        </MobileOptimizedWrapper>
-        
+
+        {/* Scanline Effect - Subtle */}
+        <ScanlineEffect opacity={0.03} speed={20} />
+
+        {/* Smooth Gradient Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#14141A]/80 via-transparent to-[#14141A]/40 pointer-events-none" />
+
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           {/* Hero Carousel */}
-          <HeroCarousel onNavigate={onNavigate} />
-          
+          <div className="max-w-5xl mx-auto">
+            <HeroCarousel onNavigate={onNavigate} />
+          </div>
+
           {/* Mobile Hero Metrics */}
-          <div className="mt-8 lg:hidden">
+          <div className="mt-10 lg:hidden">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
             >
               <AnimatedHeroMetrics />
             </motion.div>
           </div>
-          
+
           {/* Scroll Indicator */}
-          <div className="flex justify-center mt-8 md:mt-12">
+          <div className="flex justify-center mt-12 md:mt-16">
             <ScrollIndicator />
           </div>
         </div>
@@ -162,7 +164,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       {/* Metrics Section */}
       <section className="py-8 md:py-10 lg:py-12 bg-[#1A1A22] border-y border-[#00D0FF]/20 relative overflow-hidden">
         <MobileOptimizedWrapper>
-          <LiquidDistortion />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#00D0FF]/5 to-[#75FF00]/5" />
         </MobileOptimizedWrapper>
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
@@ -232,13 +234,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Service Pillars */}
-      <section className="py-12 md:py-16 lg:py-20 bg-[#14141A] relative hex-pattern overflow-hidden">
-        <MobileOptimizedWrapper>
-          <CodeFlowAnimation />
-        </MobileOptimizedWrapper>
+      <section className="py-12 md:py-16 lg:py-20 bg-[#14141A] relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            {/* Mobile: Simple, Desktop: Explosive */}
             <MobileOptimizedWrapper
               fallback={
                 <motion.div 
@@ -293,44 +291,40 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 key={`primary-${index}`}
                 fallback={
                   <MobileCard delay={index * 0.1}>
-                  <Card 
-                    className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm"
-                  >
-                    <CardContent className="pt-6">
-                      <motion.div 
-                        className="text-[#00D0FF] mb-4"
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ type: "spring", stiffness: 300, duration: 0.6 }}
-                      >
-                        {service.icon}
-                      </motion.div>
-                    <h3 className="text-white mb-3 text-xl">{service.title}</h3>
-                    <p className="text-[#C2C2CC] mb-6">{service.description}</p>
-                    <div className="border-t border-[#00D0FF]/10 pt-4 space-y-2">
-                      {service.metrics.map((metric, idx) => (
+                    <Card className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm">
+                      <CardContent className="pt-6">
                         <motion.div 
-                          key={idx} 
-                          className="flex items-center justify-between"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.2 + idx * 0.1 }}
+                          className="text-[#00D0FF] mb-4"
+                          whileHover={{ scale: 1.2, rotate: 360 }}
+                          transition={{ type: "spring", stiffness: 300, duration: 0.6 }}
                         >
-                          <span className="text-[#75FF00] font-mono text-sm">{metric}</span>
-                          <div className="flex-grow mx-3 h-px bg-gradient-to-r from-[#00D0FF]/50 to-transparent"></div>
+                          {service.icon}
                         </motion.div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                        <h3 className="text-white mb-3 text-xl">{service.title}</h3>
+                        <p className="text-[#C2C2CC] mb-6">{service.description}</p>
+                        <div className="border-t border-[#00D0FF]/10 pt-4 space-y-2">
+                          {service.metrics.map((metric, idx) => (
+                            <motion.div 
+                              key={idx} 
+                              className="flex items-center justify-between"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.2 + idx * 0.1 }}
+                            >
+                              <span className="text-[#75FF00] font-mono text-sm">{metric}</span>
+                              <div className="flex-grow mx-3 h-px bg-gradient-to-r from-[#00D0FF]/50 to-transparent"></div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
                   </MobileCard>
                 }
               >
                 <FloatingCard3D delay={index * 0.15}>
                   <ExplosiveEntrance delay={index * 0.1}>
-                    <Card 
-                      className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm"
-                    >
+                    <Card className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm">
                       <CardContent className="pt-6">
                         <motion.div 
                           className="text-[#00D0FF] mb-4"
@@ -364,51 +358,47 @@ export function HomePage({ onNavigate }: HomePageProps) {
             ))}
           </div>
 
-          {/* Additional Services (25%) - 3 Column Grid */}
+          {/* Additional Services (25%) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {services.slice(3).map((service, index) => (
               <MobileOptimizedWrapper
                 key={`additional-${index}`}
                 fallback={
                   <MobileCard delay={index * 0.1}>
-                  <Card 
-                    className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm"
-                  >
-                    <CardContent className="pt-6">
-                      <motion.div 
-                        className="text-[#00D0FF] mb-4"
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ type: "spring", stiffness: 300, duration: 0.6 }}
-                      >
-                        {service.icon}
-                      </motion.div>
-                    <h3 className="text-white mb-3 text-xl">{service.title}</h3>
-                    <p className="text-[#C2C2CC] mb-6">{service.description}</p>
-                    <div className="border-t border-[#00D0FF]/10 pt-4 space-y-2">
-                      {service.metrics.map((metric, idx) => (
+                    <Card className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm">
+                      <CardContent className="pt-6">
                         <motion.div 
-                          key={idx} 
-                          className="flex items-center justify-between"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.2 + idx * 0.1 }}
+                          className="text-[#00D0FF] mb-4"
+                          whileHover={{ scale: 1.2, rotate: 360 }}
+                          transition={{ type: "spring", stiffness: 300, duration: 0.6 }}
                         >
-                          <span className="text-[#75FF00] font-mono text-sm">{metric}</span>
-                          <div className="flex-grow mx-3 h-px bg-[#00D0FF]/50"></div>
+                          {service.icon}
                         </motion.div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                        <h3 className="text-white mb-3 text-xl">{service.title}</h3>
+                        <p className="text-[#C2C2CC] mb-6">{service.description}</p>
+                        <div className="border-t border-[#00D0FF]/10 pt-4 space-y-2">
+                          {service.metrics.map((metric, idx) => (
+                            <motion.div 
+                              key={idx} 
+                              className="flex items-center justify-between"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.2 + idx * 0.1 }}
+                            >
+                              <span className="text-[#75FF00] font-mono text-sm">{metric}</span>
+                              <div className="flex-grow mx-3 h-px bg-[#00D0FF]/50"></div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
                   </MobileCard>
                 }
               >
                 <FloatingCard3D delay={(index + 3) * 0.15}>
                   <ExplosiveEntrance delay={(index + 3) * 0.1}>
-                    <Card 
-                      className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm"
-                    >
+                    <Card className="bg-[#1A1A22] border-[#00D0FF]/20 hover:border-[#00D0FF] transition-all duration-300 group cursor-pointer overflow-hidden relative h-full backdrop-blur-sm">
                       <CardContent className="pt-6">
                         <motion.div 
                           className="text-[#00D0FF] mb-4"
@@ -493,29 +483,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Website & App Development Showcase */}
+      {/* Remaining Sections (Unchanged) */}
       <WebDevShowcase />
-
-      {/* App Development Features */}
       <AppDevFeatures />
-
-      {/* SEO Services Section */}
       <SEOServices />
-
-      {/* GMB Showcase Section */}
       <GMBShowcase />
-
-      {/* Local SEO Process */}
       <LocalSEOProcess />
-
-      {/* Industries Served */}
       <IndustriesServed />
-
-      {/* Client Testimonials */}
       <ClientTestimonials />
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-[#14141A] hex-pattern relative">
+      <section className="py-20 bg-[#14141A] relative">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -533,9 +511,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                   <div>
                     <h4 className="text-white mb-2">Measurable Results</h4>
-                    <p className="text-[#C2C2CC]">
-                      Every decision backed by data. Average 42% ROI increase across all clients.
-                    </p>
+                    <p className="text-[#C2C2CC]">Every decision backed by data. Average 42% ROI increase across all clients.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -544,9 +520,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                   <div>
                     <h4 className="text-white mb-2">AI-Powered Optimization</h4>
-                    <p className="text-[#C2C2CC]">
-                      Machine learning algorithms continuously optimize performance in real-time.
-                    </p>
+                    <p className="text-[#C2C2CC]">Machine learning algorithms continuously optimize performance in real-time.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -555,9 +529,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   </div>
                   <div>
                     <h4 className="text-white mb-2">Enterprise Integration</h4>
-                    <p className="text-[#C2C2CC]">
-                      Seamless integration with your existing tech stack and workflows.
-                    </p>
+                    <p className="text-[#C2C2CC]">Seamless integration with your existing tech stack and workflows.</p>
                   </div>
                 </div>
               </div>
@@ -582,7 +554,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                       </div>
                       <div className="h-2 bg-[#14141A] rounded-full overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-[#00D0FF] to-[#75FF00] rounded-full"
+                          className="h-full bg-gradient-to-r from-[#00D0FF] to-[#75FF00] rounded-full transition-all duration-1000"
                           style={{ width: `${item.value}%` }}
                         ></div>
                       </div>

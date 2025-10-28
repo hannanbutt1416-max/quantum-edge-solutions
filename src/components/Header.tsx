@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-
+import logo from '../assets/logo.jpg';
 interface HeaderProps {
   currentPage: string;
   onNavigate: (page: string) => void;
@@ -28,8 +28,8 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             onClick={() => onNavigate('home')}
             className="flex items-center space-x-3 group transition-all hover:opacity-90"
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-[#00D0FF] to-[#75FF00] rounded-lg flex items-center justify-center">
-              <span className="text-[#14141A] font-bold text-xl">QE</span>
+            <div className="w-12 h-12  rounded-lg flex items-center justify-center">
+              <span className="text-[#14141A] font-bold text-xl"><img src={logo} alt="Logo" className="w-20 h-20" /></span>
             </div>
             <div className="hidden sm:flex flex-col items-start leading-tight">
               <span className="text-white font-bold text-lg tracking-tight">
