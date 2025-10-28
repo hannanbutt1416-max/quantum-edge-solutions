@@ -112,8 +112,8 @@ export function HeroCarousel({ onNavigate }: HeroCarouselProps) {
                   </motion.h1>
                 }
               >
-                <Holographic3DText delay={0.5}>
-                  <h1 className="text-white mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight">
+                <motion.h1 delay={0.5}>
+                  <h1 className="text-white mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight]">
                     Unlock{" "}
                     <span className="text-[#75FF00]">
                       <TypewriterText
@@ -128,7 +128,7 @@ export function HeroCarousel({ onNavigate }: HeroCarouselProps) {
                     <br />
                     for Modern Businesses
                   </h1>
-                </Holographic3DText>
+                </motion.h1>
               </MobileOptimizedWrapper>
 
               <motion.p
