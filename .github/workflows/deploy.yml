@@ -27,7 +27,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: dist/
-          server-dir: public_html/
+          server-dir: domains/cyan-otter-290273.hostingersite.com/public_html/
           dangerous-clean-slate: true  # clears old files before uploading
 
       - name: ✅ Deployment Successful
