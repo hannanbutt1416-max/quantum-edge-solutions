@@ -33,7 +33,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             </div>
             <div className="hidden sm:flex flex-col items-start leading-tight">
               <span className="text-white font-bold text-lg tracking-tight">
-                QUANTOM
+                QUANTOM-Hussain
               </span>
               <span className="text-[#00D0FF] font-semibold text-lg tracking-tight">
                 EDGE
