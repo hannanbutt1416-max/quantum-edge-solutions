@@ -3,23 +3,23 @@ name: 🚀 Deploy to Hostinger (Quantum Edge Solutions)
 on:
   push:
     branches:
-      - main  # change if your branch is not 'main'
+      - main  # change if your branch name is different
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 🧩 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
+      - name: 📦 Install Dependencies
         run: npm install
 
-      - name: Build Project
+      - name: 🏗️ Build Vite Project
         run: npm run build
 
-      - name: Deploy to Hostinger via FTP
+      - name: 🚀 Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: 92.113.18.65
@@ -27,4 +27,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: dist/
-          server-dir: public_html
+          server-dir: public_html/
+          dangerous-clean-slate: true  # clears old files before uploading
+
+      - name: ✅ Deployment Successful
+        run: echo "🎉 Deployment completed successfully to Hostinger!"
