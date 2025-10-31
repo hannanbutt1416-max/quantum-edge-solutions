@@ -44,7 +44,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: dist/
-          server-dir: public_html/   # make sure this points to your correct folder
+          server-dir: ./   # make sure this points to your correct folder
           dangerous-clean-slate: true  # deletes old files before uploading
 
       # Step 6: Confirmation
