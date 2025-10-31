@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { ReactNode } from 'react';
+import { motion } from "motion/react";
+import { ReactNode } from "react";
 
 interface MobileCardProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ export function MobileCard({ children, delay = 0 }: MobileCardProps) {
       transition={{
         delay,
         duration: 0.5,
-        ease: 'easeOut',
+        ease: "easeOut",
       }}
     >
       {children}

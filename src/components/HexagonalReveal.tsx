@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { ReactNode } from 'react';
+import { motion } from "motion/react";
+import { ReactNode } from "react";
 
 interface HexagonalRevealProps {
   children: ReactNode;
@@ -9,12 +9,14 @@ interface HexagonalRevealProps {
 export function HexagonalReveal({ children, delay = 0 }: HexagonalRevealProps) {
   return (
     <motion.div
-      initial={{ 
-        clipPath: 'polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%, 50% 100%, 50% 0%)',
+      initial={{
+        clipPath:
+          "polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%, 50% 100%, 50% 0%)",
         opacity: 0,
       }}
-      animate={{ 
-        clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+      animate={{
+        clipPath:
+          "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
         opacity: 1,
       }}
       transition={{

@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 interface Node {
   id: number;
@@ -11,7 +11,7 @@ interface Node {
 
 export function NeuralNetwork() {
   const [nodes, setNodes] = useState<Node[]>([]);
-  
+
   useEffect(() => {
     // Create random nodes
     const initialNodes: Node[] = Array.from({ length: 30 }, (_, i) => ({
@@ -22,16 +22,16 @@ export function NeuralNetwork() {
       vy: (Math.random() - 0.5) * 0.5,
     }));
     setNodes(initialNodes);
-    
+
     // Animate nodes
     const interval = setInterval(() => {
-      setNodes(prevNodes =>
-        prevNodes.map(node => {
+      setNodes((prevNodes) =>
+        prevNodes.map((node) => {
           let newX = node.x + node.vx;
           let newY = node.y + node.vy;
           let newVx = node.vx;
           let newVy = node.vy;
-          
+
           // Bounce off edges
           if (newX <= 0 || newX >= window.innerWidth) {
             newVx = -node.vx;
@@ -41,23 +41,26 @@ export function NeuralNetwork() {
             newVy = -node.vy;
             newY = Math.max(0, Math.min(600, newY));
           }
-          
+
           return { ...node, x: newX, y: newY, vx: newVx, vy: newVy };
         })
       );
     }, 50);
-    
+
     return () => clearInterval(interval);
   }, []);
-  
+
   // Calculate connections
   const connections = nodes.flatMap((node, i) =>
-    nodes.slice(i + 1).map(otherNode => {
-      const distance = Math.hypot(node.x - otherNode.x, node.y - otherNode.y);
-      return distance < 150 ? { node, otherNode, distance } : null;
-    }).filter(Boolean)
+    nodes
+      .slice(i + 1)
+      .map((otherNode) => {
+        const distance = Math.hypot(node.x - otherNode.x, node.y - otherNode.y);
+        return distance < 150 ? { node, otherNode, distance } : null;
+      })
+      .filter(Boolean)
   );
-  
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <svg className="absolute inset-0 w-full h-full">
@@ -81,22 +84,28 @@ export function NeuralNetwork() {
           );
         })}
         <defs>
-          <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="neural-gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#00D0FF" />
             <stop offset="100%" stopColor="#75FF00" />
           </linearGradient>
         </defs>
       </svg>
-      
-      {nodes.map(node => (
+
+      {nodes.map((node) => (
         <motion.div
           key={node.id}
           className="absolute w-2 h-2 rounded-full"
           style={{
             left: node.x,
             top: node.y,
-            background: 'radial-gradient(circle, #00D0FF, #75FF00)',
-            boxShadow: '0 0 10px rgba(0, 208, 255, 0.5)',
+            background: "radial-gradient(circle, #00D0FF, #75FF00)",
+            boxShadow: "0 0 10px rgba(0, 208, 255, 0.5)",
           }}
           animate={{
             scale: [1, 1.5, 1],

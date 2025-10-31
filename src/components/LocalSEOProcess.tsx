@@ -1,52 +1,62 @@
-import { motion } from 'motion/react';
-import { Search, MapPin, BarChart, Target, CheckCircle } from 'lucide-react';
+import { motion } from "motion/react";
+import { Search, MapPin, BarChart, Target, CheckCircle } from "lucide-react";
 
 export function LocalSEOProcess() {
   const steps = [
     {
-      number: '01',
+      number: "01",
       icon: <Search className="w-8 h-8" />,
-      title: 'Audit & Analysis',
-      description: 'Comprehensive audit of your current local presence, citations, and competitors',
-      deliverables: ['NAP Audit', 'Citation Analysis', 'Competitor Research']
+      title: "Audit & Analysis",
+      description:
+        "Comprehensive audit of your current local presence, citations, and competitors",
+      deliverables: ["NAP Audit", "Citation Analysis", "Competitor Research"],
     },
     {
-      number: '02',
+      number: "02",
       icon: <MapPin className="w-8 h-8" />,
-      title: 'GMB Optimization',
-      description: 'Complete Google My Business setup, verification, and optimization',
-      deliverables: ['Profile Setup', 'Category Selection', 'Review Strategy']
+      title: "GMB Optimization",
+      description:
+        "Complete Google My Business setup, verification, and optimization",
+      deliverables: ["Profile Setup", "Category Selection", "Review Strategy"],
     },
     {
-      number: '03',
+      number: "03",
       icon: <Target className="w-8 h-8" />,
-      title: 'Local Citations',
-      description: 'Build and optimize citations across top local directories',
-      deliverables: ['Directory Listings', 'NAP Consistency', 'Schema Markup']
+      title: "Local Citations",
+      description: "Build and optimize citations across top local directories",
+      deliverables: ["Directory Listings", "NAP Consistency", "Schema Markup"],
     },
     {
-      number: '04',
+      number: "04",
       icon: <BarChart className="w-8 h-8" />,
-      title: 'Track & Optimize',
-      description: 'Continuous monitoring, reporting, and optimization for sustained growth',
-      deliverables: ['Ranking Reports', 'Performance Metrics', 'Monthly Updates']
+      title: "Track & Optimize",
+      description:
+        "Continuous monitoring, reporting, and optimization for sustained growth",
+      deliverables: [
+        "Ranking Reports",
+        "Performance Metrics",
+        "Monthly Updates",
+      ],
     },
   ];
 
   return (
     <section className="py-20 bg-[#14141A] relative hex-pattern">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <div className="inline-block mb-4 px-4 py-1 bg-[#75FF00]/10 border border-[#75FF00]/30 rounded-md">
-            <span className="text-[#75FF00] text-sm font-mono">OUR PROCESS</span>
+            <span className="text-[#75FF00] text-sm font-mono">
+              OUR PROCESS
+            </span>
           </div>
           <h2 className="text-white mb-4 text-4xl md:text-5xl">
-            Local SEO Implementation <span className="text-[#75FF00]">Roadmap</span>
+            Local SEO Implementation{" "}
+            <span className="text-[#75FF00]">Roadmap</span>
           </h2>
           <p className="text-[#C2C2CC] text-xl max-w-3xl mx-auto">
             A systematic approach to dominating local search results
@@ -85,7 +95,9 @@ export function LocalSEOProcess() {
 
                 {/* Title & Description */}
                 <h3 className="text-white mb-3 text-xl">{step.title}</h3>
-                <p className="text-[#C2C2CC] text-sm mb-6">{step.description}</p>
+                <p className="text-[#C2C2CC] text-sm mb-6">
+                  {step.description}
+                </p>
 
                 {/* Deliverables */}
                 <div className="space-y-2">

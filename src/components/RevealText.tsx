@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { ReactNode } from 'react';
+import { motion } from "motion/react";
+import { ReactNode } from "react";
 
 interface RevealTextProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ export function RevealText({ children, delay = 0 }: RevealTextProps) {
   return (
     <div className="overflow-hidden">
       <motion.div
-        initial={{ y: '100%', opacity: 0 }}
+        initial={{ y: "100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           duration: 0.8,
