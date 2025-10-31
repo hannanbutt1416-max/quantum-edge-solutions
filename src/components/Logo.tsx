@@ -1,10 +1,10 @@
 interface LogoProps {
   className?: string;
-  variant?: 'full' | 'icon' | 'text';
+  variant?: "full" | "icon" | "text";
 }
 
-export function Logo({ className = "w-10 h-10", variant = 'icon' }: LogoProps) {
-  if (variant === 'text') {
+export function Logo({ className = "w-10 h-10", variant = "icon" }: LogoProps) {
+  if (variant === "text") {
     return (
       <div className="flex flex-col items-start">
         <span className="text-white font-bold text-lg leading-tight tracking-tight">
@@ -17,7 +17,7 @@ export function Logo({ className = "w-10 h-10", variant = 'icon' }: LogoProps) {
     );
   }
 
-  if (variant === 'full') {
+  if (variant === "full") {
     return (
       <div className="flex items-center gap-3">
         <LogoIcon className={className} />
@@ -52,7 +52,7 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
         fill="none"
         opacity="0.3"
       />
-      
+
       {/* Middle hexagon layer */}
       <path
         d="M60 20 L87.5 37 L87.5 73 L60 90 L32.5 73 L32.5 37 Z"
@@ -61,7 +61,7 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
         fill="none"
         className="hex-pulse"
       />
-      
+
       {/* Inner hexagon glow */}
       <path
         d="M60 30 L80 42 L80 68 L60 80 L40 68 L40 42 Z"
@@ -70,7 +70,7 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
         fill="rgba(0, 208, 255, 0.05)"
         opacity="0.8"
       />
-      
+
       {/* Q letter integrated into hexagon */}
       <g className="letter-q">
         <path
@@ -80,39 +80,105 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
           fill="none"
           strokeLinecap="round"
         />
-        <line 
-          x1="57" 
-          y1="62" 
-          x2="63" 
-          y2="68" 
-          stroke="#00D0FF" 
-          strokeWidth="2.5" 
+        <line
+          x1="57"
+          y1="62"
+          x2="63"
+          y2="68"
+          stroke="#00D0FF"
+          strokeWidth="2.5"
           strokeLinecap="round"
         />
       </g>
-      
+
       {/* E letter - circuit style bars */}
       <g className="letter-e" opacity="0.9">
-        <line x1="70" y1="48" x2="82" y2="48" stroke="#75FF00" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="70" y1="55" x2="78" y2="55" stroke="#75FF00" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="70" y1="62" x2="82" y2="62" stroke="#75FF00" strokeWidth="2.5" strokeLinecap="round" />
-        
+        <line
+          x1="70"
+          y1="48"
+          x2="82"
+          y2="48"
+          stroke="#75FF00"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="70"
+          y1="55"
+          x2="78"
+          y2="55"
+          stroke="#75FF00"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="70"
+          y1="62"
+          x2="82"
+          y2="62"
+          stroke="#75FF00"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+
         {/* E connection dots */}
         <circle cx="68" cy="48" r="2" fill="#75FF00" />
         <circle cx="68" cy="55" r="2" fill="#75FF00" />
         <circle cx="68" cy="62" r="2" fill="#75FF00" />
       </g>
-      
+
       {/* Circuit lines connecting to center */}
       <g opacity="0.4" className="circuit-line">
-        <line x1="60" y1="60" x2="60" y2="20" stroke="#00D0FF" strokeWidth="1" />
-        <line x1="60" y1="60" x2="87.5" y2="37" stroke="#00D0FF" strokeWidth="1" />
-        <line x1="60" y1="60" x2="87.5" y2="73" stroke="#00D0FF" strokeWidth="1" />
-        <line x1="60" y1="60" x2="60" y2="90" stroke="#00D0FF" strokeWidth="1" />
-        <line x1="60" y1="60" x2="32.5" y2="73" stroke="#00D0FF" strokeWidth="1" />
-        <line x1="60" y1="60" x2="32.5" y2="37" stroke="#00D0FF" strokeWidth="1" />
+        <line
+          x1="60"
+          y1="60"
+          x2="60"
+          y2="20"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
+        <line
+          x1="60"
+          y1="60"
+          x2="87.5"
+          y2="37"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
+        <line
+          x1="60"
+          y1="60"
+          x2="87.5"
+          y2="73"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
+        <line
+          x1="60"
+          y1="60"
+          x2="60"
+          y2="90"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
+        <line
+          x1="60"
+          y1="60"
+          x2="32.5"
+          y2="73"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
+        <line
+          x1="60"
+          y1="60"
+          x2="32.5"
+          y2="37"
+          stroke="#00D0FF"
+          strokeWidth="1"
+        />
       </g>
-      
+
       {/* Connection nodes at hexagon corners */}
       <circle cx="60" cy="20" r="2.5" fill="#00D0FF" opacity="0.8">
         <animate
@@ -167,7 +233,7 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
           repeatCount="indefinite"
         />
       </circle>
-      
+
       {/* Center glow effect */}
       <circle cx="60" cy="60" r="8" fill="#00D0FF" opacity="0.2">
         <animate
@@ -183,7 +249,7 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
           repeatCount="indefinite"
         />
       </circle>
-      
+
       {/* Outer connection points */}
       <g opacity="0.6">
         <circle cx="60" cy="10" r="2" fill="#75FF00" />
@@ -198,7 +264,11 @@ function LogoIcon({ className = "w-10 h-10" }: { className?: string }) {
 }
 
 // Watermark version for background decoration
-export function LogoWatermark({ className = "w-64 h-64" }: { className?: string }) {
+export function LogoWatermark({
+  className = "w-64 h-64",
+}: {
+  className?: string;
+}) {
   return (
     <div className={`${className} opacity-5`}>
       <LogoIcon className="w-full h-full" />
@@ -207,16 +277,24 @@ export function LogoWatermark({ className = "w-64 h-64" }: { className?: string 
 }
 
 // Floating decorative logo
-export function LogoDecorative({ className = "w-32 h-32", position = "top-right" }: { className?: string; position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' }) {
+export function LogoDecorative({
+  className = "w-32 h-32",
+  position = "top-right",
+}: {
+  className?: string;
+  position?: "top-right" | "top-left" | "bottom-right" | "bottom-left";
+}) {
   const positionClasses = {
-    'top-right': 'top-20 right-10',
-    'top-left': 'top-20 left-10',
-    'bottom-right': 'bottom-20 right-10',
-    'bottom-left': 'bottom-20 left-10',
+    "top-right": "top-20 right-10",
+    "top-left": "top-20 left-10",
+    "bottom-right": "bottom-20 right-10",
+    "bottom-left": "bottom-20 left-10",
   };
 
   return (
-    <div className={`absolute ${positionClasses[position]} ${className} opacity-10 pointer-events-none`}>
+    <div
+      className={`absolute ${positionClasses[position]} ${className} opacity-10 pointer-events-none`}
+    >
       <LogoIcon className="w-full h-full" />
     </div>
   );

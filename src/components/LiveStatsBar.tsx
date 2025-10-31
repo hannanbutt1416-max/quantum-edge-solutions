@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
-import { Activity, Cpu, Database, Zap } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { Activity, Cpu, Database, Zap } from "lucide-react";
 
 export function LiveStatsBar() {
   const [stats, setStats] = useState({
     requests: 1247,
     cpu: 42,
     dataProcessed: 8.7,
-    activeThreads: 16
+    activeThreads: 16,
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStats(prev => ({
+      setStats((prev) => ({
         requests: prev.requests + Math.floor(Math.random() * 10),
         cpu: Math.min(Math.max(prev.cpu + (Math.random() - 0.5) * 5, 20), 80),
         dataProcessed: prev.dataProcessed + Math.random() * 0.5,
-        activeThreads: Math.floor(Math.random() * 8) + 12
+        activeThreads: Math.floor(Math.random() * 8) + 12,
       }));
     }, 2000);
 
@@ -24,7 +24,7 @@ export function LiveStatsBar() {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       className="bg-[#1A1A22]/80 backdrop-blur-sm border border-[#00D0FF]/20 rounded-lg p-4"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -60,15 +60,15 @@ export function LiveStatsBar() {
   );
 }
 
-function StatItem({ 
-  icon, 
-  label, 
-  value, 
-  color 
-}: { 
-  icon: React.ReactNode; 
-  label: string; 
-  value: string; 
+function StatItem({
+  icon,
+  label,
+  value,
+  color,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
   color: string;
 }) {
   return (
@@ -76,7 +76,7 @@ function StatItem({
       <div style={{ color }}>{icon}</div>
       <div>
         <div className="text-[#C2C2CC] text-xs opacity-70">{label}</div>
-        <motion.div 
+        <motion.div
           className="font-mono font-bold"
           style={{ color }}
           key={value}
