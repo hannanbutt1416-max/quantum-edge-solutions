@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import logo from '../assets/logo.jpg';
+import logoImage from 'figma:asset/626d2521e963881892f1c9edfe1908ce56f6a834.png';
+
 interface HeaderProps {
   currentPage: string;
   onNavigate: (page: string) => void;
@@ -20,24 +21,16 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#14141A]/95 backdrop-blur-md border-b border-[#2A2A33] transition-all">
-      <div className="container mx-auto px-4 py-4">
-        <nav className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#14141A]/95 backdrop-blur-md border-b border-[#2A2A33] transition-all w-full overflow-hidden">
+      <div className="container mx-auto px-4 py-4 max-w-7xl w-full">
+        <nav className="flex items-center justify-between w-full">
           {/* Logo */}
           <button
             onClick={() => onNavigate('home')}
             className="flex items-center space-x-3 group transition-all hover:opacity-90"
           >
-            <div className="w-12 h-12  rounded-lg flex items-center justify-center">
-              <span className="text-[#14141A] font-bold text-xl"><img src={logo} alt="Logo" className="w-20 h-20" /></span>
-            </div>
-            <div className="hidden sm:flex flex-col items-start leading-tight">
-              <span className="text-white font-bold text-lg tracking-tight">
-                QUANTOM
-              </span>
-              <span className="text-[#00D0FF] font-semibold text-lg tracking-tight">
-                EDGE
-              </span>
+            <div className="w-16 h-16 flex items-center justify-center">
+              <img src={logoImage} alt="Quantom Edge Solutions Logo" className="w-full h-full object-contain" />
             </div>
           </button>
 

@@ -112,22 +112,25 @@ export function HeroCarousel({ onNavigate }: HeroCarouselProps) {
                   </motion.h1>
                 }
               >
-                <motion.h1 delay={0.5}>
-                  <h1 className="text-white mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight]">
-                    Unlock{" "}
-                    <span className="text-[#75FF00]">
-                      <TypewriterText
-                        words={[
-                          "SEO Dominance",
-                          "Digital Growth",
-                          "Marketing Automation",
-                          "Data Intelligence",
-                        ]}
-                      />
-                    </span>
-                    <br />
-                    for Modern Businesses
-                  </h1>
+                <motion.h1
+                  className="text-white mb-6 text-4xl md:text-5xl lg:text-6xl leading-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Unlock{" "}
+                  <span className="text-[#75FF00]">
+                    <TypewriterText
+                      words={[
+                        "SEO Dominance",
+                        "Digital Growth",
+                        "Marketing Automation",
+                        "Data Intelligence",
+                      ]}
+                    />
+                  </span>
+                  <br />
+                  for Modern Businesses
                 </motion.h1>
               </MobileOptimizedWrapper>
 

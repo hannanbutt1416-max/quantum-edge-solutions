@@ -17,6 +17,7 @@
         'next-themes@0.4.6': 'next-themes',
         'lucide-react@0.487.0': 'lucide-react',
         'input-otp@1.4.2': 'input-otp',
+        'figma:asset/626d2521e963881892f1c9edfe1908ce56f6a834.png': path.resolve(__dirname, './src/assets/626d2521e963881892f1c9edfe1908ce56f6a834.png'),
         'figma:asset/5e0d02ed83eda21d85c18f21937b9d38924d7a9a.png': path.resolve(__dirname, './src/assets/5e0d02ed83eda21d85c18f21937b9d38924d7a9a.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',
@@ -47,12 +48,13 @@
         '@radix-ui/react-aspect-ratio@1.1.2': '@radix-ui/react-aspect-ratio',
         '@radix-ui/react-alert-dialog@1.1.6': '@radix-ui/react-alert-dialog',
         '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
+        '@jsr/supabase__supabase-js@2.49.8': '@jsr/supabase__supabase-js',
         '@': path.resolve(__dirname, './src'),
       },
     },
     build: {
       target: 'esnext',
-      outDir: 'dist',
+      outDir: 'build',
     },
     server: {
       port: 3000,

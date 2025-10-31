@@ -6,8 +6,8 @@ interface FooterProps {
 
 export function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="bg-[#14141A] text-[#C2C2CC] border-t border-[#00D0FF]/20 relative overflow-hidden">
-      <div className="container mx-auto px-4 py-12 relative z-10">
+    <footer className="bg-[#14141A] text-[#C2C2CC] border-t border-[#00D0FF]/20 relative overflow-hidden w-full">
+      <div className="container mx-auto px-4 py-12 relative z-10 max-w-7xl w-full">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
@@ -159,8 +159,12 @@ export function Footer({ onNavigate }: FooterProps) {
             <button className="hover:text-[#00D0FF] transition-colors">
               Terms of Service
             </button>
-            <button className="hover:text-[#00D0FF] transition-colors">
-              Security
+            <button
+              onClick={() => onNavigate("admin")}
+              className="hover:text-[#00D0FF] transition-colors opacity-50 hover:opacity-100"
+              title="Admin Access"
+            >
+              Admin
             </button>
           </div>
         </div>

@@ -96,14 +96,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#14141A]">
+    <div className="min-h-screen bg-[#14141A] overflow-x-hidden w-full">
       {/* Cursor Trail - Desktop Only */}
       <MobileOptimizedWrapper>
         <CursorTrail />
       </MobileOptimizedWrapper>
       
       {/* HERO SECTION - Clean, Smooth & Stunning */}
-      <section className="relative py-16 md:py-32 overflow-hidden">
+      <section className="relative py-16 md:py-32 overflow-hidden w-full">
         {/* Clean Background Stack */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#14141A] via-[#1A1A22] to-[#14141A] opacity-90" />
         
@@ -130,9 +130,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
         {/* Smooth Gradient Overlay for Depth */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#14141A]/80 via-transparent to-[#14141A]/40 pointer-events-none" />
 
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 max-w-7xl w-full">
           {/* Hero Carousel */}
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto w-full">
             <HeroCarousel onNavigate={onNavigate} />
           </div>
 

@@ -3,10 +3,6 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { CircuitBackground } from './CircuitBackground';
 import { LogoDecorative } from './Logo';
-import { motion, useInView } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
-import CountUp from 'react-countup';
-import { useRef } from 'react';
 
 interface ServicesPageProps {
   onNavigate: (page: string) => void;
@@ -29,9 +25,9 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         { name: 'Real-time Reporting', icon: <BarChart size={16} /> },
       ],
       metrics: [
-        { label: 'Avg ROI Increase', value: 42, suffix: '%', target: 42 },
-        { label: 'Conversion Lift', value: 127, suffix: '%', target: 127 },
-        { label: 'Cost Reduction', value: 35, suffix: '%', target: 35 },
+        { label: 'Avg ROI Increase', value: '+42%' },
+        { label: 'Conversion Lift', value: '+127%' },
+        { label: 'Cost Reduction', value: '-35%' },
       ],
     },
     {
@@ -49,9 +45,9 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         { name: 'Task Scheduling', icon: <Clock size={16} /> },
       ],
       metrics: [
-        { label: 'Time Saved', value: 20, suffix: 'hrs/wk', target: 20 },
-        { label: 'Process Efficiency', value: 85, suffix: '%', target: 85 },
-        { label: 'Error Reduction', value: 92, suffix: '%', target: 92 },
+        { label: 'Time Saved', value: '20hrs/wk' },
+        { label: 'Process Efficiency', value: '+85%' },
+        { label: 'Error Reduction', value: '-92%' },
       ],
     },
     {
@@ -69,9 +65,9 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         { name: 'Performance Monitoring', icon: <Cpu size={16} /> },
       ],
       metrics: [
-        { label: 'Uptime SLA', value: 99.9, suffix: '%', target: 99.9 },
-        { label: 'Deploy Speed', value: 10, suffix: 'x Faster', target: 10 },
-        { label: 'Scalability', value: 100, suffix: '%', target: 100 },
+        { label: 'Uptime SLA', value: '99.9%' },
+        { label: 'Deploy Speed', value: '10x Faster' },
+        { label: 'Scalability', value: 'Unlimited' },
       ],
     },
   ];
@@ -121,134 +117,9 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
     },
   ];
 
-  // Reusable Enhanced Service Component
-  const EnhancedService = ({ service, index }: { service: typeof services[0]; index: number }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const isOdd = index % 2 === 1;
-
-    return (
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 80 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: index * 0.15 }}
-        className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isOdd ? 'lg:grid-flow-dense' : ''}`}
-      >
-        {/* Content */}
-        <motion.div
-          className={isOdd ? 'lg:col-start-2' : ''}
-          whileHover={{ x: isOdd ? -8 : 8 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="text-[#00D0FF] mb-6 p-3 w-fit rounded-xl bg-gradient-to-br from-[#00D0FF]/20 to-transparent border border-[#00D0FF]/40 backdrop-blur-sm">
-            {service.icon}
-          </div>
-          <div className="inline-block mb-4 px-4 py-1.5 bg-gradient-to-r from-[#00D0FF]/20 to-[#75FF00]/20 border border-[#00D0FF]/40 rounded-full">
-            <span className="text-[#00D0FF] text-xs font-mono tracking-wider">{service.tagline}</span>
-          </div>
-          <h2 className="text-white mb-5 text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-[#C2C2CC]">
-            {service.title}
-          </h2>
-          <p className="text-[#C2C2CC] text-lg mb-10 leading-relaxed max-w-xl">
-            {service.description}
-          </p>
-
-          <div className="grid grid-cols-2 gap-5 mb-10">
-            {service.features.map((feature, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: idx * 0.05 + 0.3 }}
-                className="flex items-center space-x-3 p-3 rounded-lg bg-[#1A1A22]/50 backdrop-blur border border-[#00D0FF]/20 hover:border-[#00D0FF]/50 transition-all group"
-              >
-                <div className="text-[#00D0FF] group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </div>
-                <span className="text-[#C2C2CC] text-sm font-medium">{feature.name}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <Button
-            onClick={() => onNavigate('contact')}
-            className="relative overflow-hidden bg-gradient-to-r from-[#75FF00] to-[#00D0FF] text-[#14141A] font-bold text-lg px-8 py-6 rounded-xl shadow-xl hover:shadow-[#75FF00]/50 transition-all group"
-          >
-            <span className="relative z-10">Explore {service.title.split(' ')[0]}</span>
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
-          </Button>
-        </motion.div>
-
-        {/* Metrics Card */}
-        <div className={isOdd ? 'lg:col-start-1 lg:row-start-1' : ''}>
-          <Tilt
-            glareEnable
-            glareMaxOpacity={0.3}
-            glareColor="#00D0FF"
-            glarePosition="all"
-            tiltMaxAngleX={10}
-            tiltMaxAngleY={10}
-            perspective={1000}
-            className="h-full"
-          >
-            <Card className="bg-gradient-to-br from-[#1A1A22]/90 to-[#14141A]/90 border border-[#00D0FF]/40 backdrop-blur-xl shadow-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="mb-8">
-                  <h3 className="text-[#00D0FF] font-mono text-sm tracking-widest uppercase">Impact Metrics</h3>
-                  <div className="h-1 w-20 bg-gradient-to-r from-[#00D0FF] to-[#75FF00] mt-2 rounded-full"></div>
-                </div>
-
-                {service.metrics.map((metric: any, idx) => {
-                  const countRef = useRef(null);
-                  const countInView = useInView(countRef, { once: true });
-
-                  return (
-                    <motion.div
-                      key={idx}
-                      ref={countRef}
-                      initial={{ opacity: 0, x: -50 }}
-                      animate={countInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: idx * 0.15 }}
-                      className="mb-8 last:mb-0"
-                    >
-                      <div className="flex justify-between items-end mb-3">
-                        <span className="text-[#C2C2CC] text-sm font-medium">{metric.label}</span>
-                        <span className="text-[#75FF00] font-bold text-3xl font-mono">
-                          {countInView && (
-                            <CountUp
-                              start={0}
-                              end={metric.target}
-                              duration={2.5}
-                              decimals={metric.suffix.includes('.') ? 1 : 0}
-                              suffix={metric.suffix.replace(/[0-9]/g, '')}
-                            />
-                          )}
-                          {metric.suffix.includes('x') && 'x'}
-                        </span>
-                      </div>
-                      <div className="h-2 bg-[#14141A] rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={countInView ? { width: `${Math.min(metric.target, 100)}%` } : {}}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-[#00D0FF] via-[#75FF00] to-[#00D0FF] rounded-full shadow-glow"
-                        />
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </CardContent>
-            </Card>
-          </Tilt>
-        </div>
-      </motion.div>
-    );
-  };
-
   return (
     <div className="min-h-screen bg-[#14141A]">
-      {/* Hero Section - UNCHANGED */}
+      {/* Hero Section */}
       <section className="relative py-20 overflow-hidden hex-pattern">
         <CircuitBackground />
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -262,18 +133,65 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         </div>
       </section>
 
-      {/* Services Detail - ALL THREE ENHANCED */}
+      {/* Services Detail */}
       <section className="py-20 bg-[#14141A] relative">
         <LogoDecorative position="top-right" className="w-48 h-48" />
         <LogoDecorative position="bottom-left" className="w-40 h-40" />
-        <div className="container mx-auto px-4 space-y-32">
+        <div className="container mx-auto px-4 space-y-20">
           {services.map((service, index) => (
-            <EnhancedService key={service.id} service={service} index={index} />
+            <div key={service.id} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+              <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                <div className="text-[#00D0FF] mb-4">{service.icon}</div>
+                <div className="inline-block mb-4 px-3 py-1 bg-[#00D0FF]/10 border border-[#00D0FF]/30 rounded-md">
+                  <span className="text-[#00D0FF] text-xs font-mono">{service.tagline}</span>
+                </div>
+                <h2 className="text-white mb-4 text-4xl">{service.title}</h2>
+                <p className="text-[#C2C2CC] text-lg mb-8">{service.description}</p>
+                
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-2">
+                      <div className="text-[#00D0FF]">{feature.icon}</div>
+                      <span className="text-[#C2C2CC] text-sm">{feature.name}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button 
+                  onClick={() => onNavigate('contact')}
+                  className="bg-[#75FF00] text-[#14141A] hover:bg-[#75FF00]/90 glow-lime"
+                >
+                  Learn More
+                </Button>
+              </div>
+              
+              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                <Card className="bg-[#1A1A22] border-[#00D0FF]/30 glow-cyan">
+                  <CardContent className="pt-6">
+                    <div className="mb-6">
+                      <div className="text-[#C2C2CC] mb-4 font-mono text-sm">PERFORMANCE METRICS</div>
+                      <div className="h-px bg-gradient-to-r from-[#00D0FF] to-transparent mb-6"></div>
+                    </div>
+                    {service.metrics.map((metric, idx) => (
+                      <div key={idx} className="mb-6 last:mb-0">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-[#C2C2CC] text-sm">{metric.label}</span>
+                          <span className="text-[#75FF00] font-mono text-2xl metric-glow">{metric.value}</span>
+                        </div>
+                        <div className="h-1 bg-[#14141A] rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-[#00D0FF] to-[#75FF00] w-full rounded-full"></div>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Pricing Packages - UNCHANGED */}
+      {/* Pricing Packages */}
       <section className="py-20 bg-[#1A1A22]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -331,7 +249,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         </div>
       </section>
 
-      {/* CTA Section - UNCHANGED */}
+      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#00D0FF]/10 to-[#75FF00]/10 border-y border-[#00D0FF]/20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-white mb-4 text-4xl">Ready to Optimize Your Operations?</h2>
